@@ -1,0 +1,2 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/aksha/OneDrive/Documents/MathAnimations/Lorenz Attractor/media/videos/lorenz/480p15/partial_movie_files/LorenzAttractor/2382079045_568244900_522932684.mp4'
