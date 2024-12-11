@@ -2,10 +2,9 @@ import numpy as np
 from scipy.integrate import solve_ivp
 from manim import *
 
-def double_pendulum_system(t, state, l1=.5, l2=.5, m1=1, m2=1, g=9.8):
+def double_pendulum_system(t, state, l1=.5, l2=.2, m1=1, m2=5, g=9.8):
     theta1, theta2, theta1_dot, theta2_dot = state
 
-    # Common expressions for readability
     delta_theta = theta1 - theta2
     sin_delta_theta = np.sin(delta_theta)
     cos_delta_theta = np.cos(delta_theta)
@@ -13,7 +12,6 @@ def double_pendulum_system(t, state, l1=.5, l2=.5, m1=1, m2=1, g=9.8):
     denominator1 = l1 * (2 * m1 + m2 - m2 * cos_delta_theta**2)
     denominator2 = l2 * (2 * m1 + m2 - m2 * cos_delta_theta**2)
 
-    # Equations for theta1_dot_dot and theta2_dot_dot
     theta1_dot_dot = (
         -g * (2 * m1 + m2) * np.sin(theta1) 
         - m2 * g * np.sin(theta1 - 2 * theta2)
@@ -42,9 +40,9 @@ def solution_points(state0,time,dt=0.01):
 class DoublePendulum(Scene):
     def construct(self):
         L1 = .5
-        L2 = .5
+        L2 = .2
         m1 = 1.0
-        m2 = 1.0
+        m2 = 5.0
         g = 9.8
         axes = Axes(
             x_range=[-2,2,1],
